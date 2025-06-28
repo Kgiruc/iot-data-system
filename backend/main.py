@@ -1,6 +1,3 @@
-from config.config import MQTT_HOST, MQTT_PORT, MQTT_TOPIC
+from mqtt_client.subscriber import run_subscriber
 
-print(f"Host: {MQTT_HOST}")
-print(f"Host: {MQTT_PORT}")
-print(f"Host: {MQTT_TOPIC}")
-
+run_subscriber()
