@@ -1,6 +1,6 @@
-import paho.mqtt.client as mqtt
-import mysql.connector
+from config.config import MQTT_HOST, MQTT_PORT, MQTT_TOPIC
 
-print("✅ Python działa!")
-print("✅ MQTT paczka działa!")
-print("✅ MariaDB paczka działa!")
+print(f"Host: {MQTT_HOST}")
+print(f"Host: {MQTT_PORT}")
+print(f"Host: {MQTT_TOPIC}")
+
