@@ -1,18 +1,16 @@
 import mysql.connector
 from backend.config.config import DB_HOST,DB_NAME,DB_PASS,DB_USER
+from backend.utils.logger import logger
 
 def get_connection():
-    return mysql.connector.connect(
+    try:
+        conn = mysql.connector.connect(
         host=DB_HOST,
         user=DB_USER,
         password=DB_PASS,
         database=DB_NAME,
     )
-
-if __name__ == "__main__":
-    try:
-        conn = get_connection()
-        print("✅ Połączenie z bazą danych działa!")
-        conn.close()
-    except Exception as e:
-        print(f"❌ Błąd połączenia z bazą danych: {e}")
+        return conn
+    except mysql.connector.Error as err:
+        logger.error(f"Błąd połączenia z bazą danych: {err}")
+        return None
