@@ -12,8 +12,9 @@ def run_subscriber(message_handler):
 
     def on_message(client, userdata, msg):
         payload = msg.payload.decode()
-        logger.info(f"Otrzymano wiadomość:{payload}")
-        message_handler(payload)
+        topic = msg.topic
+        logger.info(f"Otrzymano wiadomość z tematu '{topic}':{payload}")
+        message_handler(topic, payload)
 
         client = mqtt.Client()
         client.on_connect = on_connect
