@@ -1,5 +1,5 @@
 import paho.mqtt.client as mqtt
-from config.config import MQTT_HOST, MQTT_PORT, MQTT_TOPIC
+from backend.config.config import MQTT_HOST, MQTT_PORT, MQTT_TOPIC
 from backend.utils.logger import logger
 
 def run_subscriber(message_handler):
@@ -16,9 +16,9 @@ def run_subscriber(message_handler):
         logger.info(f"Otrzymano wiadomość z tematu '{topic}':{payload}")
         message_handler(topic, payload)
 
-        client = mqtt.Client()
-        client.on_connect = on_connect
-        client.on_message = on_message
+    client = mqtt.Client()
+    client.on_connect = on_connect
+    client.on_message = on_message
 
-        client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
-        client.loop_forever()
+    client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
+    client.loop_forever()
