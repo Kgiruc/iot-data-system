@@ -3,7 +3,7 @@ from datetime import datetime, timezone
 from backend.utils.logger import logger
 
 
-def parse_payload(payload: str) -> dict | None
+def parse_payload(payload: str) -> dict | None:
     try:
         data = json.loads(payload)
         if not all(k in data for k in("sensor_name","value")):
