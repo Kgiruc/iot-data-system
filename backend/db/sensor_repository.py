@@ -1,12 +1,12 @@
 from backend.db.database import get_connection
 from backend.utils.logger import logger
 
-def get_sensor_id_by_name(sensor_name: str) -> int | None:
+def get_sensor_id_by_name(sensor_id: str) -> int | None:
     try:
         conn = get_connection()
         cursor = conn.cursor()
-        query = "SELECT id FROM sensors WHERE name = %s"
-        cursor.execute(query, (sensor_name,))
+        query = "SELECT id FROM sensors WHERE sensor_id = %s"
+        cursor.execute(query, (sensor_id,))
         result = cursor.fetchone()
         return result[0] if result else None
     except Exception as e:
