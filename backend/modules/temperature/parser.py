@@ -6,7 +6,7 @@ from backend.utils.logger import logger
 def parse_payload(payload: str) -> dict | None:
     try:
         data = json.loads(payload)
-        if not all(k in data for k in("sensor_id","value","unit")):
+        if not all(k in data for k in("sensor_name","value")):
             raise ValueError("brak wymaganych pól")
         
         data["timestamp"] = datetime.now(timezone).isoformat()
