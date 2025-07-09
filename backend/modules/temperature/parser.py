@@ -9,7 +9,7 @@ def parse_payload(payload: str) -> dict | None:
         if not all(k in data for k in("sensor_name","value")):
             raise ValueError("brak wymaganych pól")
         
-        data["timestamp"] = datetime.now(timezone).isoformat()
+        data["timestamp"] = datetime.now(timezone.utc).isoformat()
         return data
     except Exception as e:
         logger.error(f"bład parsownia:{e}")
