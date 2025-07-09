@@ -1,5 +1,5 @@
 from backend.mqtt_client.subscriber import run_subscriber
-from backend.modules.temperature.handler import handle_temperature_message
+from backend.services.mqtt_dispatcher import dispatch
 
 if __name__ == "__main__":
-    run_subscriber(handle_temperature_message)
+    run_subscriber(dispatch)
