@@ -6,7 +6,7 @@ def validate_payload(data: dict, schema: dict, custom_rules=None) -> bool:
             if not isinstance(data[field], expected_type):
                 return False
             
-        if custom_rules
+        if custom_rules:
             return custom_rules(data)
         
         return True
