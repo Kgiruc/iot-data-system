@@ -6,15 +6,20 @@ def run_subscriber(message_handler):
     def on_connect(client, userdata, flags, rc):
         if rc == 0:
             logger.info("Połączono z MQTT")
-            client.subscribe(MQTT_TOPIC)
+            for topic in MQTT_TOPIC.values():
+                client.subscribe(topic)
+                logger.info(f"Zasubskrybowano: {topic}")
         else:
-            logger.error("błąd połączenia error: {rc}")
+            logger.error(f"Błąd połączenia MQTT: {rc}")
 
     def on_message(client, userdata, msg):
-        payload = msg.payload.decode()
-        topic = msg.topic
-        logger.info(f"Otrzymano wiadomość z tematu '{topic}':{payload}")
-        message_handler(topic, payload)
+        try:
+            payload = msg.payload.decode()
+            topic = msg.topic
+            logger.info(f"Otrzymano wiadomość z tematu '{topic}': {payload}")
+            message_handler(topic, payload)
+        except Exception as e:
+            logger.error(f"Błąd w on_message:{e}")
 
     client = mqtt.Client()
     client.on_connect = on_connect

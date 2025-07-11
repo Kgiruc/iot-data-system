@@ -1,16 +1,23 @@
 from dotenv import load_dotenv
 import os
-import json
 
-load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__),"..",".env"))
+base_dir = os.path.dirname(__file__)
+
+load_dotenv(os.path.join(base_dir,"..",".env"))
+load_dotenv(os.path.join(base_dir,"..","mqtt_topics.env"))
 
 MQTT_HOST = os.getenv("MQTT_HOST")
 MQTT_PORT = int(os.getenv("MQTT_PORT"))
-
-MQTT_TOPIC = json.loads(os.getenv("MQTT_TOPIC"))
 
 DB_USER = os.getenv("DB_USER")
 DB_PASS = os.getenv("DB_PASS")
 DB_NAME = os.getenv("DB_NAME")
 DB_HOST = os.getenv("MQTT_HOST")
+
+MQTT_TOPIC = {
+    key.removeprefix("MQTT_TOPIC_"): value
+    for key, value in os.environ.items()
+    if key.startswith("MQTT_TOPIC_")
+}
+print("mqtt_topic", MQTT_TOPIC)
 

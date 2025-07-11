@@ -2,7 +2,7 @@ from backend.db.database import get_connection
 from backend.utils.logger import logger
 
 def insert_sensor_data(sensor_type: str, sensor_id: int, data: dict):
-    table_name = f"{sensor_type}_data"
+    table_name = f"{sensor_type.lower()}_data"
     value = data.get("value")
     timestamp = data.get("timestamp")
 
@@ -20,6 +20,8 @@ def insert_sensor_data(sensor_type: str, sensor_id: int, data: dict):
         logger.info(f"[{sensor_type}] Dane zapisane w tabeli {table_name}")
     except Exception as e:
         logger.error(f"[{sensor_type}] Błąd insertu: {e}")
+        raise
+
     finally:
         if cursor:
             cursor.close()
