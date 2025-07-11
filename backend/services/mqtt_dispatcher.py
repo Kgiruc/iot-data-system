@@ -1,9 +1,10 @@
-from backend.modules.temperature.handler import handle_temperature_message
-from backend.config.config import MQTT_TOPIC
+from backend.modules.common.handler import handle_sensor_data
+from backend.config.config import MQTT_TOPICS
 from backend.utils.logger import logger
 
 def dispatch(topic: str, payload: str):
-    if topic == MQTT_TOPIC:
-        handle_temperature_message(topic, payload)
+    sensor_type = next((stype for stype, t in MQTT_TOPICS.items() if t == topic), None)
+    if sensor_type:
+        handle_sensor_data(sensor_type, payload)
     else:
-        logger.warning(f"Otrzymano wiadomość z nieznanego tematu: {topic}")
+        logger.warning(f"Odrzucono wiadomość z nieznanego topica: {topic}")
