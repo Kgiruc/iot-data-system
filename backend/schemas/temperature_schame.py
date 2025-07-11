@@ -1,4 +1,4 @@
 TEMPERATURE_SCHEMA = {
-    "sensor_id": str,
+    "sensor_name": str,
     "value": (float, int),
 }
