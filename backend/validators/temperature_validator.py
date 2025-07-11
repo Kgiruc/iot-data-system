@@ -1,4 +1,4 @@
-from backend.schemas.temperature_schame import TEMPERATURE_SCHEMA
+from backend.schemas.temperature_schema import TEMPERATURE_SCHEMA
 from backend.validators.common.validate import validate_payload
 
 def validate_temperature(data: dict) -> bool:

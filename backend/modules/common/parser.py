@@ -13,7 +13,7 @@ def parse_common_fields(payload: str) -> dict | None:
             raise ValueError("Walidacja nie powiodła się")
 
 
-        data["timestamp"] = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+        data["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         return data
 
     except Exception as e:
