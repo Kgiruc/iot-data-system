@@ -129,6 +129,7 @@ celerybeat.pid
 
 # Environments
 *.env
+mqtt_topics.env
 .env
 .venv
 env/
