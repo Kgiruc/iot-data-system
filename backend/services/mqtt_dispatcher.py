@@ -1,6 +1,6 @@
-from backend.modules.common.handler import handle_sensor_data
-from backend.config.config import MQTT_TOPIC
-from backend.utils.logger import logger
+from modules.common.handler import handle_sensor_data
+from config.config import MQTT_TOPIC
+from utils.logger import logger
 
 def dispatch(topic: str, payload: str):
     sensor_type = next((stype for stype, t in MQTT_TOPIC.items() if t == topic), None)

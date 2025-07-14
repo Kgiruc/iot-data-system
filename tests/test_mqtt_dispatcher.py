@@ -1,7 +1,7 @@
 import pytest
 import json
-from backend.services import mqtt_dispatcher
-from backend.config import config
+from services import mqtt_dispatcher
+from config import config
 
 def test_dispatch_valid_topic(monkeypatch):
     called = {}

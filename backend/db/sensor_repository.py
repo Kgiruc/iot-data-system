@@ -1,5 +1,5 @@
-from backend.db.database import get_connection
-from backend.utils.logger import logger
+from db.database import get_connection
+from utils.logger import logger
 
 def get_sensor_id_by_name(sensor_id: str) -> int | None:
     conn = None

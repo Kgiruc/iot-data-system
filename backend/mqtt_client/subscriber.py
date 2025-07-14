@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
-from backend.config.config import MQTT_HOST, MQTT_PORT, MQTT_TOPIC
-from backend.utils.logger import logger
+from config.config import MQTT_HOST, MQTT_PORT, MQTT_TOPIC
+from utils.logger import logger
 
 def run_subscriber(message_handler):
     def on_connect(client, userdata, flags, rc):

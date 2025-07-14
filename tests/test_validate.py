@@ -1,5 +1,4 @@
-import pytest
-from backend.validators.temperature_validator import validate_temperature
+from validators.temperature_validator import validate_temperature
 
 def test_valid_temperature():
     data = {"sensor_name": "temp1", "value": 22.5}

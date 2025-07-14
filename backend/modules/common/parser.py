@@ -1,7 +1,7 @@
 import json
-from datetime import datetime, timezone
-from backend.utils.logger import logger
-from backend.validators.temperature_validator import validate_temperature
+from datetime import datetime
+from utils.logger import logger
+from validators.temperature_validator import validate_temperature
 
 def parse_common_fields(payload: str) -> dict | None:
     try:

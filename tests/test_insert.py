@@ -1,4 +1,4 @@
-from backend.modules.common.insert import insert_sensor_data
+from modules.common.insert import insert_sensor_data
 
 def test_insert_sensor_data_invalid_table(monkeypatch):
     def mock_get_connection():
@@ -12,7 +12,7 @@ def test_insert_sensor_data_invalid_table(monkeypatch):
             def close(self): pass
         return MockConnection()
 
-    monkeypatch.setattr("backend.modules.common.insert.get_connection", mock_get_connection)
+    monkeypatch.setattr("modules.common.insert.get_connection", mock_get_connection)
 
     try:
         insert_sensor_data("unknown_sensor", 1, {

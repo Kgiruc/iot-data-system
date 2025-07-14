@@ -1,5 +1,5 @@
 import json
-from backend.modules.common.parser import parse_common_fields
+from modules.common.parser import parse_common_fields
 
 def test_valid_payload(monkeypatch):
     def mock_validate_temperature(data):

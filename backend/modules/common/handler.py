@@ -1,7 +1,7 @@
-from backend.modules.common.parser import parse_common_fields
-from backend.modules.common.insert import insert_sensor_data
-from backend.db.sensor_repository import get_sensor_id_by_name
-from backend.utils.logger import logger
+from modules.common.parser import parse_common_fields
+from modules.common.insert import insert_sensor_data
+from db.sensor_repository import get_sensor_id_by_name
+from utils.logger import logger
 
 def handle_sensor_data(sensor_type: str, payload: str):
     logger.info(f"[{sensor_type.upper()}] Odebrano payload: {payload}")

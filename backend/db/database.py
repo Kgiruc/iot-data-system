@@ -1,6 +1,6 @@
 import mysql.connector
-from backend.config.config import DB_HOST,DB_NAME,DB_PASS,DB_USER
-from backend.utils.logger import logger
+from config.config import DB_HOST,DB_NAME,DB_PASS,DB_USER
+from utils.logger import logger
 
 def get_connection():
     try:

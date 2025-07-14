@@ -1,5 +1,5 @@
-from backend.db.database import get_connection
-from backend.utils.logger import logger
+from db.database import get_connection
+from utils.logger import logger
 
 def insert_sensor_data(sensor_type: str, sensor_id: int, data: dict):
     table_name = f"{sensor_type.lower()}_data"

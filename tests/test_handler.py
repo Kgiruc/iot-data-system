@@ -1,5 +1,5 @@
 import json
-from backend.modules.common.handler import handle_sensor_data
+from modules.common.handler import handle_sensor_data
 
 def test_handle_sensor_data_success(monkeypatch):
     mock_data = {
