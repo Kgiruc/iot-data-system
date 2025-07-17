@@ -22,6 +22,17 @@ esp32-firmware/**/*.map
 esp32-firmware/**/*.log
 esp32-firmware/**/*.pyc
 
+# === FIRMWARE: ESP32 ESP-IDF ===
+esp32-firmware/**/build/
+esp32-firmware/**/sdkconfig
+esp32-firmware/**/sdkconfig.old
+esp32-firmware/**/*.bin
+esp32-firmware/**/*.elf
+esp32-firmware/**/*.map
+esp32-firmware/**/*.log
+esp32-firmware/**/*.pyc
+
+
 # Distribution / packaging
 .Python
 build/
