@@ -17,6 +17,7 @@
 #include  "esp_log.h"
 #include "wifi_mode.h"
 #include "mqtt_broker.h"
+#include "app_logic.h"
 
 const gpio_num_t LED_GPIO = GPIO_NUM_1;
 
@@ -29,5 +30,7 @@ gpio_set_direction(GPIO_NUM_1, GPIO_MODE_OUTPUT);
  vTaskDelay(pdMS_TO_TICKS(3000));
 
  mqtt_publish_test_start();
+
+ app_init();
 
 }
