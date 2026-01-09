@@ -1,0 +1,62 @@
+# ===============================
+# ESP-IDF / Build artifacts
+# ===============================
+build/
+**/build/
+sdkconfig.old
+sdkconfig.old.*
+sdkconfig.defaults
+
+# ===============================
+# ESP-IDF tools & cache
+# ===============================
+.idf_py_cache/
+.idf_tools/
+components/**/build/
+
+# ===============================
+# VS Code
+# ===============================
+.vscode/
+*.code-workspace
+
+# ===============================
+# Python (ESP-IDF uses Python)
+# ===============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+env/
+venv/
+
+# ===============================
+# OS / Windows
+# ===============================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# ===============================
+# Logs / temp
+# ===============================
+*.log
+*.tmp
+*.swp
+*.bak
+
+# ===============================
+# CMake / Ninja
+# ===============================
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+.ninja_deps
+.ninja_log
+
+# ===============================
+# Misc
+# ===============================
+.DS_Store
