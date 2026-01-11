@@ -3,6 +3,7 @@
 #include "mqtt_client.h"
 #include "esp_event.h"
 #include "driver/gpio.h"
+#include "net/iot_mqtt_client.h"
 
 static const char *TAG = "MQTT_TEST";
 
@@ -45,12 +46,13 @@ static void mqtt_event_handler(void *handler_args,
     }
 
     if (event_id == MQTT_EVENT_DATA) {
-        if(event->data[0] == '1') {
-           gpio_set_level(LED_GPIO, 1);
-        } 
-        if(event->data[0] == '0') {
-           gpio_set_level(LED_GPIO, 0);
-        }
+        // if(event->data[0] == '1') {
+        //    gpio_set_level(LED_GPIO, 1);
+        // } 
+        // if(event->data[0] == '0') {
+        //    gpio_set_level(LED_GPIO, 0);
+        // }
+        iot_mqtt_client_deliver_data(event->topic, event->topic_len, event->data, event->data_len);
         return;
     }
 

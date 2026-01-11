@@ -12,3 +12,11 @@ void iot_mqtt_client_start(void)
     (void)s_data_cb;
     // TODO: później tu przeniesiemy właściwy kod MQTT z legacy
 }
+
+void iot_mqtt_client_deliver_data(const char *topic, int topic_len,
+                                  const char *data, int data_len)
+{
+    if (s_data_cb) {
+        s_data_cb(topic, topic_len, data, data_len);
+    }
+}
