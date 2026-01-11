@@ -33,25 +33,11 @@ static void mqtt_event_handler(void *handler_args,
     if (event_id == MQTT_EVENT_CONNECTED) {
         ESP_LOGI(TAG, "MQTT CONNECTED");
 
-        esp_mqtt_client_subscribe_single(s_client, "iot/light", 0);
-
-        // if (!s_published) {
-        //     const char *payload = "{\"sensor_name\":\"esp32-1\",\"value\":0.5}";
-        //     // int msg_id = esp_mqtt_client_publish(s_client, MQTT_TOPIC, payload, 0, 0, 0);
-        //     ESP_LOGI(TAG, "PUBLISHED msg_id=%d topic=%s payload=%s", msg_id, MQTT_TOPIC, payload);
-        //     s_published = true;
-        // }
         
                 return;
     }
 
     if (event_id == MQTT_EVENT_DATA) {
-        // if(event->data[0] == '1') {
-        //    gpio_set_level(LED_GPIO, 1);
-        // } 
-        // if(event->data[0] == '0') {
-        //    gpio_set_level(LED_GPIO, 0);
-        // }
         iot_mqtt_client_deliver_data(event->topic, event->topic_len, event->data, event->data_len);
         return;
     }
