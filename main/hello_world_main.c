@@ -18,19 +18,17 @@
 #include "wifi_mode.h"
 #include "mqtt_broker.h"
 #include "app_logic.h"
-
-const gpio_num_t LED_GPIO = GPIO_NUM_1;
+#include "board/board.h"
 
 void app_main(void)
 {
-gpio_set_direction(GPIO_NUM_1, GPIO_MODE_OUTPUT);
-
+board_init();
  wifi_start_sta();
 
  vTaskDelay(pdMS_TO_TICKS(3000));
-
+app_init();
  mqtt_publish_test_start();
 
- app_init();
+ 
 
 }

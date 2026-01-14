@@ -7,15 +7,9 @@
 
 static const char *TAG = "MQTT_TEST";
 
-extern const gpio_num_t LED_GPIO;
 
 #define MQTT_BROKER_URI "mqtt://192.168.1.26:1883"
 
-
-#define MQTT_TOPIC "iot/temperature"
-
-
-static bool s_published = false;
 
 static esp_mqtt_client_handle_t s_client = NULL;
 
@@ -33,7 +27,7 @@ static void mqtt_event_handler(void *handler_args,
     if (event_id == MQTT_EVENT_CONNECTED) {
         ESP_LOGI(TAG, "MQTT CONNECTED");
 
-        
+        esp_mqtt_client_subscribe_single(s_client, "iot/light", 0);
                 return;
     }
 
@@ -64,5 +58,5 @@ void mqtt_publish_test_start(void)
     esp_mqtt_client_register_event(s_client, ESP_EVENT_ANY_ID, mqtt_event_handler, NULL);
     esp_mqtt_client_start(s_client);
 
-    ESP_LOGI(TAG, "mqtt_publish_test_start: broker=%s topic=%s", MQTT_BROKER_URI, MQTT_TOPIC);
+    ESP_LOGI(TAG, "mqtt_publish_test_start: broker=%s ", MQTT_BROKER_URI);
 }
