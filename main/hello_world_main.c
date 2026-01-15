@@ -16,19 +16,15 @@
 #include "nvs_flash.h"
 #include  "esp_log.h"
 #include "wifi_mode.h"
-#include "mqtt_broker.h"
 #include "app_logic.h"
 #include "board/board.h"
+#include "net/iot_mqtt_client.h"
 
 void app_main(void)
 {
 board_init();
- wifi_start_sta();
-
- vTaskDelay(pdMS_TO_TICKS(3000));
+wifi_start_sta();
+vTaskDelay(pdMS_TO_TICKS(3000));
 app_init();
- mqtt_publish_test_start();
-
- 
 
 }

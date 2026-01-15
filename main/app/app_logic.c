@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <string.h>
 #include "app_logic.h"
 #include "board.h"
@@ -9,7 +8,7 @@
 void app_init(void)
 {
     iot_mqtt_client_set_data_callback(app_on_mqtt_data);
-    // iot_mqtt_client_start();
+    iot_mqtt_client_start();
 }
 
 void app_on_mqtt_data(const char *topic, int topic_len, const char *data, int data_len)
